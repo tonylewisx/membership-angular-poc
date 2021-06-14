@@ -1,0 +1,17 @@
+
+table {
+    width: 100%;
+    background-color:brown;
+}
+
+H1 { text-align: center;}
+
+.mat-button{ background-color: royalblue;}
+
+.mat-row:hover .mat-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }

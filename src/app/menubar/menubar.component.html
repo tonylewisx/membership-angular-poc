@@ -1,0 +1,32 @@
+
+
+
+<button mat-button [matMenuTriggerFor]="aboveMenu">MDA</button>
+<mat-menu #aboveMenu="matMenu" yPosition="below">
+ 
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="homeMenu">HOME</button>
+<mat-menu #homeMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="memberMenu">Membership</button>
+<mat-menu #memberMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+
+<button mat-button [matMenuTriggerFor]="itemDistMenu">Item Distribution</button>
+<mat-menu #itemDistMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="adminMenu">Admin</button>
+<mat-menu #adminMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
