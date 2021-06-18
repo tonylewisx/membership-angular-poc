@@ -18,6 +18,7 @@ export class DisplayrecordsComponent implements AfterViewInit {
   clickedRows = new Set<PeriodicElement>();
   
   //@ViewChild(MatPaginator) paginator: MatPaginator;
+  //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngAfterViewInit() {
     //this.dataSource.paginator = this.paginator;
@@ -25,8 +26,9 @@ export class DisplayrecordsComponent implements AfterViewInit {
 
   //constructor() {}
 
-  //ngOnInit(): void {
-  //}
+  ngOnInit(): void {
+  //  this.dataSource.paginator = this.paginator;
+  }
 
 }
 

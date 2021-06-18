@@ -30,8 +30,7 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell>
       <mat-cell *matCellDef="let element" >
-           <button mat-button (click)="clickedRows.add(element)" >View</button>
-           
+        <button mat-raised-button  (click)="clickedRows.add(element)"  >View</button>     
       </mat-cell>
     </ng-container>
 
@@ -46,14 +45,14 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
 
-    <!--
+  <!--
     <tr
       mat-row
       (click)="clickedRows.add(row)"
       [class.demo-row-is-clicked]="clickedRows.has(row)"
       *matRowDef="let row; columns: displayedColumns;"
   ></tr>
-    -->
+  -->
 
   </table>
 
