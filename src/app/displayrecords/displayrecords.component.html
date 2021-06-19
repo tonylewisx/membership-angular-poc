@@ -30,14 +30,14 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell>
       <mat-cell *matCellDef="let element" >
-        <button mat-raised-button  (click)="clickedRows.add(element)"  >View</button>     
+        <button mat-raised-button  (click)= "displayRow(element)" >View</button>     
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="checkbox1">
       <mat-header-cell  *matHeaderCellDef > Select </mat-header-cell>
       <mat-cell *matCellDef="let element" >
-        <mat-checkbox (click)="clickedRows.add(element)" [class.demo-row-is-clicked]="clickedRows.has(element)"></mat-checkbox>
+        <mat-checkbox (click)="clickedRowAdded(element)" [class.demo-row-is-clicked]="clickedRows.has(element)"></mat-checkbox>
       </mat-cell>
     </ng-container>
 

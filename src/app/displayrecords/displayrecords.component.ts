@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router, RouterLinkWithHref } from '@angular/router';
 
 
 
@@ -9,26 +10,60 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './displayrecords.component.html',
   styleUrls: ['./displayrecords.component.css']
 })
+
 export class DisplayrecordsComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','actions','checkbox1'];
 
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  clickedRows = new Set<PeriodicElement>();
+  selectRow = new Set<PeriodicElement>(); // row of view button clicked
+  clickedRows = new Set<PeriodicElement>(); // rows checked boxed
+
   
   //@ViewChild(MatPaginator) paginator: MatPaginator;
   //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngAfterViewInit() {
     //this.dataSource.paginator = this.paginator;
+   // setTimeout( ()=>this.dataSource.paginator = this.paginator);
   }
 
-  //constructor() {}
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit(): void {
   //  this.dataSource.paginator = this.paginator;
   }
+
+  // display row that view button is pressed
+  displayRow(r:PeriodicElement){
+    this.selectRow.add(r);
+    setTimeout(() => {
+      this.router.navigate(['displayRecord']);
+    }, 1000);
+  }
+
+  // added each row that is check boxed
+  clickedRowAdded(r:PeriodicElement){
+    var recExist=false;
+    for (var rec of this.clickedRows){
+       if (r == rec) {
+          recExist=true;
+          this.clickedRows.delete(r);
+          break;
+       }
+    }
+
+    if (recExist==false){
+        this.clickedRows.add(r);
+    }
+  }
+
+  get viewRow() {
+    return this.clickedRows;
+}
 
 }
 
