@@ -1,5 +1,5 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
+import { Component, AfterViewInit, ViewChild, Output, EventEmitter,ChangeDetectorRef } from '@angular/core';
+import {MatPaginator, MatPaginatorIntl} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router, RouterLinkWithHref } from '@angular/router';
 
@@ -19,8 +19,10 @@ export class DisplayrecordsComponent implements AfterViewInit {
 
   selectRow = new Set<PeriodicElement>(); // row of view button clicked
   clickedRows = new Set<PeriodicElement>(); // rows checked boxed
-
   
+ // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator = new MatPaginator();
+  //@ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator = new MatPaginator(new MatPaginatorIntl(), ChangeDetectorRef.prototype);
   //@ViewChild(MatPaginator) paginator: MatPaginator;
   //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -34,7 +36,8 @@ export class DisplayrecordsComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
-  //  this.dataSource.paginator = this.paginator;
+    setTimeout(() => this.dataSource.paginator = this.paginator);
+    //this.dataSource.paginator = this.paginator;
   }
 
   // display row that view button is pressed

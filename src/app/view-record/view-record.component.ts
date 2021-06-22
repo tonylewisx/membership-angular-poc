@@ -1,5 +1,5 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DisplayrecordsComponent, PeriodicElement } from '../displayrecords/displayrecords.component';
 
 @Component({
@@ -8,8 +8,7 @@ import { DisplayrecordsComponent, PeriodicElement } from '../displayrecords/disp
   styleUrls: ['./view-record.component.css']
 })
 
-//const dc = DisplayrecordsComponent;
-
+//const dc = DisplayrecordsComponent; 
 export class ViewRecordComponent implements OnInit {
   
  // private vRow:PeriodicElement= {};
